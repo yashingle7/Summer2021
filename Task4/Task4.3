@@ -1,0 +1,10 @@
+import cv2
+import numpy as np
+
+
+image1 = cv2.imread('ironman.jpg')
+image2 = cv2.imread('deadpool.jpg')
+collage = np.hstack((image1,image2))
+cv2.imshow("collage", collage)
+cv2.waitKey()
+cv2.destroyAllWindows()
