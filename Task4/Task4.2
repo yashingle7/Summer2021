@@ -1,0 +1,43 @@
+import cv2
+import numpy as np
+
+ironman= cv2.imread('ironman.jpg')
+cv2.imshow('beckham', ironman)
+cv2.waitKey()
+cv2.destroyAllWindows()
+
+
+bx1 = 160
+by1 = 35
+bx2 = 320
+by2 = 220
+ironmanFace = ironman[by1:by2, bx1:bx2]
+cv2.imshow("ironman", ironmanFace)
+cv2.waitKey()
+cv2.destroyAllWindows()
+
+
+deadpool= cv2.imread('deadpool.jpg')
+cv2.imshow('deadpool', deadpool)
+cv2.waitKey()
+cv2.destroyAllWindows()
+
+
+nx1 = 160
+ny1 = 35
+nx2 = 320
+ny2 = 220
+deadpoolFace = deadpool[ny1:ny2, nx1:nx2]
+cv2.imshow("deadpool", deadpoolFace)
+cv2.waitKey()
+cv2.destroyAllWindows()
+
+
+ironman=cv2.imread("ironman.jpg")
+ironman[by1:by2, bx1:bx2]= deadpoolFace
+deadpool=cv2.imread("deadpool.jpg")
+deadpool[ny1:ny2, nx1:nx2]= ironmanFace
+cv2.imshow("ironman", ironman)
+cv2.imshow("deadpool", deadpool)
+cv2.waitKey()
+cv2.destroyAllWindows()
