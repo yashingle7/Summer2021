@@ -1,0 +1,53 @@
+<html>
+<head>
+    <title>Devops</title>
+    <link rel="stylesheet" href="main.css">
+
+    <script>
+        function docker()
+        {
+         window.location="http://192.168.0.103/docker.html"
+        }
+   
+        function kube()
+        {
+         window.location="http://192.168.0.103/kubernetes.html"
+        }
+    </script>
+</head>
+<body>
+    <h1 id="h1">WELCOME TO DEVOPS</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+<!--
+                <div class="card card1">
+                    <img src="./d4.png" alt="Avatar">
+                </div>
+                <div class="card card2">
+                    <img src="./k1.png" alt="Avatar">
+                </div>
+            -->                
+                <div class="card card1" onclick="docker()">
+                    <h5>DOCKER</h5>
+                </div>
+                <div class="card card2" onclick="kube()">
+                    <h5>KUBERNETES</h5>
+                </div>
+                
+                <!--
+                <div class="card card3">
+                    <h5>OPENSHIFT</h5>
+                </div>
+                <div class="card card4">
+                    <h5>ANSIBLE</h5>
+                </div>
+                <div class="card card5">
+                    <h5>GIT</h5>
+                </div>
+            -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
