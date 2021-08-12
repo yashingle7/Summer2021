@@ -1,0 +1,68 @@
+#h1{
+    color: white;
+    font-size: 60px;
+    position: absolute;
+    top: 40px;
+    left: 32%;
+}
+h2{
+    position: relative;
+    top: 170px;
+    left: 320px;
+    font-size: 30px;
+    padding: 40px;
+    font-family: Serif;
+    letter-spacing: 1px;
+}
+#d1{
+    font-weight: italic;
+    color: black;
+    font-size: 20px;
+    width: 1200px;
+    height: 400px;
+    background: rgba(0, 0, 0, 0.2);
+    position:relative;
+    top: 120px;
+    left: 160px;
+}
+#d2{
+    display: inline-block;
+    padding: 0.46em 1.6em;
+    border:0.1em solid #000000;
+    margin:0 0.2em 0.2em 0;
+    border-radius: 0.12em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:300;
+    color:#000000;
+    text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
+    background-color:#b9f085;
+    text-align:center;
+    transition: all 0.15s;
+    cursor: pointer;
+    }
+#d2:hover{
+    text-shadow: 0 0 2em rgba(255,255,255,1);
+    color:#000000;
+    border-color:#FFFFFF;
+}
+@media all and (max-width:30em){
+    #d2{
+        display:block;
+        margin:0.4em auto;
+    }
+}
+#in1 {
+    width: 400px;
+    height: 32px;
+    font-size: 19px;
+    border-radius: 10px;
+ }
+.container{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(160, 156, 156, 0.7),rgba(255, 182, 182, 0.781)),url(./d5.jpg);
+    background-position: center;
+    background-size: cover;
+}
