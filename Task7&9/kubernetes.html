@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>kubernetes</title>
+   <link rel="stylesheet" href="kubernetes.css">
+   <script>
+      function lw() {
+
+
+         var i = document.getElementById("in1").value
+         var idd = "0"
+         var final = " "
+
+         //creating deployment
+         if (((i.includes("deployments")) || (i.includes("deployment")) || (i.includes("deploy"))) && ((i.includes("launch")) || (i.includes("create")) || (i.includes("run")) || (i.includes("build")))) {
+            var iname = prompt("Enter image name: ")
+            var dname = prompt("Enter deployment name: ")
+            var idd = "1"
+            var final = idd + " " + iname + " " + dname
+         }
+
+         //creating pod
+
+         else if (((i.includes("pod")) || (i.includes("pods"))) && ((i.includes("launch")) || (i.includes("create")) || (i.includes("build")) || (i.includes("run")))) {
+
+            var iname = prompt("Enter image name: ")
+            var pname = prompt("Enter pod name: ")
+            var idd = "2"
+            var final = idd + " " + iname + " " + pname
+         }
+
+         //delete pod
+         else if (((i.includes("pod")) || (i.includes("pods"))) && ((i.includes("delete")) || (i.includes("remove")) || (i.includes("detach")) || (i.includes("destroy")))){
+
+            var pname = prompt("Enter pod name: ")
+            var idd = "3"
+            var final = idd + " " + pname
+         }
+
+         //delete deployment
+         else if (((i.includes("deployments")) || (i.includes("deployment")) || (i.includes("deploy"))) && ((i.includes("delete")) || (i.includes("remove")) || (i.includes("destroy")) || (i.includes("detach")))) {
+
+            var dname = prompt("Enter deployment name: ")
+            var idd = "4"
+            var final = idd + " " + dname
+         }
+
+         //expose deployment
+         else if (((i.includes("deployments")) || (i.includes("deploy")) || (i.includes("deployment"))) && ((i.includes("expose")) || (i.includes("display")) || (i.includes("display")))) {
+            var dname = prompt("Enter Deployment name: ")
+            var port_no = prompt("Enter port no. on which you want to expose your deployment: ")
+            var etype = prompt(" 1. NodePort \n 2. ClusterIP \n 3.External \n Enter the type which you want to expose ")
+            var idd = "5"
+            var final = idd + " " + dname + " " + port_no + " " + etype
+
+         }
+         //scale deployment
+         else if (((i.includes("deployments")) || (i.includes("deploy")) || (i.includes("deployment"))) && ((i.includes("scale")) || (i.includes("replica")) || (i.includes("increase")) || (i.includes("decrease")) || (i.includes("scale up")) || (i.includes("scale down")))) {
+            var dname = prompt("Enter Deployment name: ")
+            var replica = prompt("Enter no. of replication : ")
+            var idd = "6"
+            var final = idd + " " + dname + " " + replica
+
+         }
+         //list pods
+         else if (((i.includes("pods")) || (i.includes("pod"))) && ((i.includes("show")) || (i.includes("get")) || (i.includes("display")) || (i.includes("see")) || (i.includes("list")))) {
+            var idd = "7"
+            var final = idd
+
+         }
+         //list deployments
+         else if (((i.includes("deployments")) || (i.includes("deployment")) || (i.includes("deploy"))) && ((i.includes("show")) || (i.includes("see")) || (i.includes("display")) || (i.includes("get")) || (i.includes("list")))) {
+            var idd = "8"
+            var final = idd
+
+         }
+         //list svc
+         else if (((i.includes("services")) || (i.includes("services")) || (i.includes("svc"))) && ((i.includes("show")) || (i.includes("see")) || (i.includes("display")) || (i.includes("get")) || (i.includes("list")))) {
+            var idd = "9"
+            var final = idd
+
+         }
+         else if (i.includes("Thank you")){
+            var idd = "10"
+            var final = idd
+
+         }
+         else {
+            var idd = "404"
+            var final = idd
+
+         }
+
+
+
+
+         var xhr = new XMLHttpRequest();
+
+         xhr.open("GET", "http://192.168.0.103/cgi-bin/kube.py?x=" + final, true);
+
+         xhr.send()
+
+         //output from above url
+         xhr.onload = function () {
+            var output = xhr.responseText;
+
+            document.getElementById("d1").innerHTML = output;
+         }
+      }
+   </script>
+
+</head>
+
+<body>
+   <div id="container">
+      <h1>Kubernetes WebUI</h1>
+      <h2>Enter your requirement <input id="in1" /> <button id="d2" onclick="lw()">Enter</button></h2>
+      <pre>
+    <div id="d1">Output</div>
+    </pre>
+   </div>
+</body>
+
+</html>
