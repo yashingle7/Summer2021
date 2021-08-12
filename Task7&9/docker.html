@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Docker Home</title>
+   <link rel="stylesheet" href="docker.css">
+
+   <script>
+      function lw() {
+
+         var i = document.getElementById("in1").value
+
+         var idd = "0"
+         var final = " "
+
+
+         //start a new container with name
+         if ((i.includes("container")) && ((i.includes("launch")) || (i.includes("create")) || (i.includes("build")))){
+
+            var iname = prompt("Enter image name: ")
+            var cname = prompt("Enter container name: ")
+            var idd = "1"
+            var final = idd + " " + iname + " " + cname
+         }
+
+         //delete container
+         else if ((i.includes("container")) && ((i.includes("delete")) || (i.includes("remove")) || (i.includes("detach")) || (i.includes("destroy")))) {
+
+            var cname = prompt("Enter container name: ")
+            var idd = "2"
+            var final = idd + " " + cname
+         }
+
+         //stop container
+         else if ((i.includes("container")) && (i.includes("running")) || ((i.includes("stop")) || (i.includes("end")) || (i.includes("terminate")) || (i.includes("halt")))) {
+
+            var cname = prompt("Enter container name: ")
+            var idd = "3"
+            var final = idd + " " + cname
+         }
+         //download image
+         else if (((i.includes("download")) || (i.includes("pull"))) && (i.includes("image"))) {
+
+            var dname = prompt("Enter image name: ")
+            var idd = "4"
+            var final = idd + " " + dname
+         }
+
+         //start a shell in background
+         else if (((i.includes("execute")) || (i.includes("start")) || (i.includes("display"))) && ((i.includes("shell")) || (i.includes("terminal")))) {
+            var cname = prompt("Enter container name: ")
+            var idd = "5"
+            var final = idd + " " + cname
+
+         }
+
+
+
+         //list all conatiner
+         else if ((i.includes("container")) && (i.includes("all")) && ((i.includes("show")) || (i.includes("see")) || (i.includes("display")) || (i.includes("get")) || (i.includes("list")))) {
+            var idd = "7"
+            var final = idd
+
+         }
+
+        //list running container
+        else if ((i.includes("get")) || (i.includes("show") || (i.includes("list")) || (i.includes("display"))) && (i.includes("containers"))) {
+            var idd="6"
+            var final = idd
+
+         }
+
+         //list all images
+         else if ((i.includes("images")) && ((i.includes("show")) || (i.includes("see")) || (i.includes("display")) || (i.includes("get")) || (i.includes("list")))) {
+            var idd = "8"
+            var final = idd
+
+         }
+
+         else if (i.includes("Thank you")){
+            var idd = "9"
+            var final = idd
+
+         }
+         else {
+            var idd = "404"
+            var final = idd
+         }
+        
+         }
+
+
+         var xhr = new XMLHttpRequest();
+
+         xhr.open("GET", "http://192.168.0.103/cgi-bin/doc.py?x=" + final, true);
+
+         xhr.send()
+
+         //output from above url
+         xhr.onload = function () {
+            var output = xhr.responseText;
+
+            document.getElementById("d1").innerHTML = output;
+         }
+      }
+   </script>
+</head>
+
+<body>
+   <div class="container">
+      <h1 id="h1">DOCKER WEBUI</h1>
+      <h2>Enter your requierments<input id="in1" /><button id="d2" onclick="lw()">Enter</button></h2>
+
+      <pre>
+         <div id="d1">OUTPUT</div>
+      </pre>
+   </div>
+</body>
+</html>
